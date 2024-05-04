@@ -1,6 +1,6 @@
 // Form.js
 import React, { useState } from 'react';
-import './../styles/App.css';
+
 
 const Form = () => {
   const [fields, setFields] = useState([{ name: '', age: '' }]);
@@ -54,6 +54,7 @@ const Form = () => {
         Add More ...
       </button>
       <button className='sub' type="submit">Submit</button>
+      <p>After clicking submit check for console data</p>
     </form>
   );
 };
