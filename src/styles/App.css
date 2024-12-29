@@ -1,0 +1,48 @@
+/* Styling for the form container */
+.form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for each field (input + remove button) */
+  .field {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    margin: 5px;
+    padding: 5px;
+    width: calc(50% - 10px);
+  }
+  
+  button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button.add {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  button.sub {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  button[type="button"] {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+  
