@@ -27,7 +27,7 @@ const Form = () => {
   // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Log the form data without the 'Form Data:' label and directly log the array of field objects
+    // Log only the raw array of data without any extra label
     console.log(fields);
   };
 
