@@ -63,7 +63,7 @@ const Form = () => {
       <button className="sub" type="submit">
         Submit
       </button>
-      <p>After clicking submit, check for console data</p>
+      <p>After clicking submit check for console data</p>
     </form>
   );
 };
