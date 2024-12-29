@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 
 const Form = () => {
-  const [fields, setFields] = useState([{ id: Date.now(), name: '', age: '' }]);
+  const [fields, setFields] = useState([{ name: '', age: '' }]);
 
+  // Handle input changes for fields
   const handleInputChange = (index, event) => {
     const { name, value } = event.target;
     const newFields = [...fields];
@@ -11,24 +12,29 @@ const Form = () => {
     setFields(newFields);
   };
 
+  // Add a new field
   const handleAddField = () => {
-    setFields([...fields, { id: Date.now(), name: '', age: '' }]);
+    setFields([...fields, { name: '', age: '' }]);
   };
 
-  const handleRemoveField = (id) => {
-    setFields(fields.filter(field => field.id !== id));
+  // Remove a field by index
+  const handleRemoveField = (index) => {
+    const newFields = [...fields];
+    newFields.splice(index, 1);
+    setFields(newFields);
   };
 
+  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = fields.map(({ id, ...rest }) => rest); // Remove `id` from each field
-    console.log('Form Data:', formData);
+    // Log the form data without the 'Form Data:' label and directly log the array of field objects
+    console.log(fields);
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
       {fields.map((field, index) => (
-        <div key={field.id} className="field">
+        <div key={index} className="field">
           <input
             type="text"
             name="name"
@@ -43,7 +49,7 @@ const Form = () => {
             value={field.age}
             onChange={(e) => handleInputChange(index, e)}
           />
-          <button type="button" onClick={() => handleRemoveField(field.id)}>
+          <button type="button" onClick={() => handleRemoveField(index)}>
             Remove
           </button>
         </div>
@@ -54,7 +60,7 @@ const Form = () => {
       <button className="sub" type="submit">
         Submit
       </button>
-      <p>After clicking submit check for console data</p>
+      <p>After clicking submit, check for console data</p>
     </form>
   );
 };
