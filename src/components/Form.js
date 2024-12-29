@@ -2,10 +2,8 @@
 import React, { useState } from 'react';
 
 const Form = () => {
-  // State to manage dynamic fields
   const [fields, setFields] = useState([{ id: Date.now(), name: '', age: '' }]);
 
-  // Handle input changes for dynamic fields
   const handleInputChange = (index, event) => {
     const { name, value } = event.target;
     const newFields = [...fields];
@@ -13,20 +11,17 @@ const Form = () => {
     setFields(newFields);
   };
 
-  // Add new field
   const handleAddField = () => {
     setFields([...fields, { id: Date.now(), name: '', age: '' }]);
   };
 
-  // Remove a specific field
   const handleRemoveField = (id) => {
     setFields(fields.filter(field => field.id !== id));
   };
 
-  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = fields.map(({ id, ...rest }) => rest); // Remove `id` from the form data
+    const formData = fields.map(({ id, ...rest }) => rest); // Remove `id` from each field
     console.log('Form Data:', formData);
   };
 
@@ -59,7 +54,7 @@ const Form = () => {
       <button className="sub" type="submit">
         Submit
       </button>
-      <p>After clicking submit, check for console data</p>
+      <p>After clicking submit check for console data</p>
     </form>
   );
 };
